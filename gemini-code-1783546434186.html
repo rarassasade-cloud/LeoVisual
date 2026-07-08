@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeoVisual | Premium Design Agency</title>
+    <!-- Google Fonts & Font Awesome untuk Ikon Media Sosial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Modern Reset & Variables */
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-card: #111827;
+            --accent-primary: #6366f1; 
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--text-main);
+        }
+
+        /* Sosial Media Menu Utama */
+        .social-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-menu a {
+            font-size: 16px;
+            margin-left: 15px;
+            color: var(--text-muted);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-menu a.wa:hover { color: #25d366; }
+        .social-menu a.ig:hover { color: #e1306c; }
+        .social-menu a.fb:hover { color: #1877f2; }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 20px;
+            background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+            max-width: 800px;
+            margin-bottom: 24px;
+            background: linear-gradient(to bottom right, #ffffff 40%, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 36px;
+            color: var(--text-muted);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--accent-primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(99, 102, 241, 0.4);
+            background-color: #4f46e5;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .services-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Card Design */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px var(--accent-glow);
+        }
+
+        .card-content-top {
+            margin-bottom: 30px;
+        }
+
+        .card .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .price span {
+            display: block;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .btn-order {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover .btn-order {
+            background-color: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #06080e;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: #fff;
+        }
+
+        /* Responsive Design Rules */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            nav { padding: 15px 5%; }
+            nav ul li:not(.social-menu) { display: none; } /* Hanya sembunyikan teks link, ikon sosmed tetap tampil */
+            nav ul li.social-menu { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">LeoVisual</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li class="social-menu">
+                <a href="https://wa.me/6289504723643" target="_blank" class="wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/100809f_" target="_blank" class="ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/GANTI_DENGAN_USERNAME_ANDA" target="_blank" class="fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Desain Eksklusif untuk Brand yang Ingin Tampil Beda</h1>
+        <p>Kami menghadirkan solusi visual premium mulai dari logo identitas hingga strategi konten media sosial untuk menaikkan kelas bisnismu.</p>
+        <a href="#services" class="btn-primary">Jelajahi Layanan</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-header">
+            <h2>Layanan Desain</h2>
+            <p>Pilih layanan yang sesuai dengan kebutuhan transformasional bisnis Anda.</p>
+        </div>
+        
+        <div class="grid">
+            
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-content-top">
+                    <div class="icon"><span role="img" aria-label="Sparkles">✨</span></div>
+                    <h3>Order Logo</h3>
+                    <p>Representasikan visi besar bisnismu melalui logo yang ikonik, timeless, dan memiliki filosofi mendalam.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="price">
+                        <span>Mulai Dari</span>
+                        Rp 250.000
+                    </div>
+                    <a href="https://wa.me/6289504723643?text=Halo%20LeoVisual,%20saya%20tertarik%20dengan%20layanan%20Order%20Logo" target="_blank" class="btn-order">Order</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-content-top">
+                    <div class="icon"><span role="img" aria-label="Package">📦</span></div>
+                    <h3>Packaging Design</h3>
+                    <p>Tingkatkan nilai jual produk fisik Anda lewat desain kemasan yang estetik, exclusif, dan fungsional di rak toko.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="price">
+                        <span>Mulai Dari</span>
+                        Rp 450.000
+                    </div>
+                    <a href="https://wa.me/6289504723643?text=Halo%20LeoVisual,%20saya%20tertarik%20dengan%20layanan%20Packaging%20Design" target="_blank" class="btn-order">Order</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-content-top">
+                    <div class="icon"><span role="img" aria-label="Lightning">⚡</span></div>
+                    <h3>Social Media Kit</h3>
+                    <p>Sistem visual feed Instagram terkurasi untuk membangun kepercayaan audiens secara konsisten setiap bulan.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="price">
+                        <span>Mulai Dari</span>
+                        Rp 600.000
+                    </div>
+                    <a href="https://wa.me/6289504723643?text=Halo%20LeoVisual,%20saya%20tertarik%20dengan%20layanan%20Social%20Media%20Kit" target="_blank" class="btn-order">Order</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-socials">
+            <a href="https://wa.me/6289504723643" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/100809f_" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/GANTI_DENGAN_USERNAME_ANDA" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <p>&copy; 2026 LeoVisual. Crafted for Excellence.</p>
+    </footer>
+
+</body>
+</html>
